@@ -14,9 +14,9 @@ TODO: Give a short introduction of your project. Let this section explain the ob
 # Skriv program & testfall:
 	1. Skriv ditt program i app_<index>.xx
 		a. Ifall app är skriven i .c/.cpp, kompilera och länka till en exekverbar fil app_<index>.exe
-    b. Spara app-fil i mapp application/
+		b. Spara app-fil i mapp application/
 	2. Skriv ditt test i test_<index>.test
-    a. Spara test-fil i mapp test/
+		a. Spara test-fil i mapp test/
 
 # Köra testfall:
 	1. Kör testfall genom kommando i terminal: 
