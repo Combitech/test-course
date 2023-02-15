@@ -1,0 +1,3 @@
+Test No    Input A     Input B     Input C    Expected Results
+1          1.9         2.0         2.1        Other
+2          2.0         2.0         2.0        Equilateral
