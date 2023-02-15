@@ -1,13 +1,40 @@
-# Introduction 
+# Introduction: 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 # Komma igång:
-	1. Kommando: git clone <repo>
-	2. Skapa en lokal branch:
-		* git branch branch_<index>
-	3. Kopiera mallfiler för app_ och test_ till mapparna application/ och test/
-	4. Döp om filer så att de har index <givet index>
-	5. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
+Det finns stöd för - utöver kommandotolk och notepad++ - att arbeta med förjande IDE: Visual Studio Code och Eclipse. 
+
+## Visual Studio Code:
+För att få igång Visual Studio Code, öppna upp VS Code. För att synkronisera med git med VS Code:
+
+	1. Öppna upp terminal: 
+		* välj meny Terminal/New Terminal
+	2. Gå till valfri/önskad katalog
+	3. Ladda ner filer från repo: 
+		* git clone https://github.com/Combitech/test-course
+	4. Skapa en lokal branch:
+		* git branch branch_<valfri index: lämpligen dina initialer> 
+		
+## Eclipse:
+To Be Defined
+		
+## Terminal & Text Editor:
+Väljer du att arbeta med kommandotolken och test editor:
+
+	1. Öppna upp kommandotolk:
+		* Win-tangent 
+		* skriv: cmd 
+		* Enter
+	2. Gå till varfri/önskad katalog
+	3. Ladda ner filer från repo:
+		* git clone https://github.com/Combitech/test-course
+	4. Skapa en lokal branch:
+		* git branch branch_<valfri index: lämpligen dina initialer> 
+
+## Skapa filer:
+	1. Kopiera mallfiler för app_ och test_ till mapparna application/ och test/
+	2. Döp om filer så att de har index <givet index>
+	3. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
 		* Python (.py)
 		* Kodfil som kompileras och länkas till en exekverbar fil (.exe)
 
