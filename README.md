@@ -1,5 +1,5 @@
 # Introduction: 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Detta är ett projekt innehållande grund för genomförande av testkurs
 
 # Komma igång:
 Det finns stöd för - utöver kommandotolk och notepad++ - att arbeta med förjande IDE: Visual Studio Code och Eclipse. 
