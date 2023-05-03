@@ -46,11 +46,12 @@ Väljer du att arbeta med kommandotolken och test editor:
 		a. Spara test-fil i mapp test/
 
 # Köra testfall:
+För att köra testfall behöver man stå i huvudkatalogen (nivån ovan) så att både test-course/ och Tools/ katalogen är synliga. 
 	1. Kör testfall genom kommando i terminal: 
-		* python test_one_file.py application/app_<index>.xx test/test_<index>.test
+		* python Tools\test_one_file.py test-course\application\app_<index>.xx test-course\test\test_<index>.test
 	2. Utvärdera resultat:
 		* Sammanfattning visas i terminal: Pass/Fail
-		* Detaljerad resultat finns i mappen result/test_<index>_app_<index>.log
+		* Detaljerad resultat finns i mappen test-course\result\test_<index>_app_<index>.log
 
 # Git & Versionshantering:
 ## När du är nöjd med något, checka in i din lokala branch:
