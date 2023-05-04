@@ -17,6 +17,9 @@ För att få igång Visual Studio Code, öppna upp VS Code. För att synkroniser
 		
 ## Eclipse:
 To Be Defined
+
+## Skapa en lokal kopia av repo
+Skapa en fork av detta repository här i Github via knappen "fork" ovanför. Behåll namnet på repository (test-course). 
 		
 ## Terminal & Text Editor:
 Väljer du att arbeta med kommandotolken och test editor:
@@ -28,8 +31,10 @@ Väljer du att arbeta med kommandotolken och test editor:
 	2. Gå till varfri/önskad katalog
 	3. Ladda ner filer från repo:
 		* git clone https://github.com/Combitech/test-course
-	4. Skapa en lokal branch:
-		* git branch branch_<valfri index: lämpligen dina initialer> 
+	4. Skapa en "upstream" för huvud repo
+		* git remote add upstream https://github.com/Combitech/test-course
+	5. Växla till lokal branch:
+		* git branch Session_<datum för kursstart>  
 
 ## Skapa filer:
 	1. Kopiera mallfiler för app_ och test_ till mapparna application/ och test/
@@ -41,6 +46,8 @@ Väljer du att arbeta med kommandotolken och test editor:
 # Skriv program & testfall:
 	1. Skriv ditt program i app_<index>.xx
 		a. Ifall app är skriven i .c/.cpp, kompilera och länka till en exekverbar fil app_<index>.exe
+			i. <instruktion för att kompilera>
+			ii. <instruktion för att länka till app_<index>.exe
 		b. Spara app-fil i mapp application/
 	2. Skriv ditt test i test_<index>.test
 		a. Spara test-fil i mapp test/
@@ -63,6 +70,14 @@ För att köra testfall behöver man stå i huvudkatalogen (nivån ovan) så att
 		* Ex. git commit -m "add/update of app_<index>.py"
 
 ## När du är färdig att ladda upp till main-branch/huvud-tråd:
-	1. Fetch/Synkronisera med huvud-tråd/-branch: git fetch
+	1. Fetch/Synkronisera med huvud-tråd/-branch: git pull upstream Session_<datum för kursstart>
 	2. Status/kolla status: git status
 	3. Push/Ladda upp till huvud tråd: git push
+	
+## Skapa Pull Request
+	1. I github välj "Pull Request" och "New Pull Request"
+	2. Skapa en ny pull request (Create New Pull Request)
+		* Från lokal:Session_<datum> till Combitech/test-course:Session_<datum>
+		* Lägg till någon av kursledarna som granskare
+		* Klicka "Skapa/Create"
+	3. Kursledaren granskar och godkänner incheckning till kurs-repo
