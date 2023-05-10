@@ -39,8 +39,10 @@ Väljer du att arbeta med kommandotolken och test editor:
 1. Öppna upp kommandotolk:
 
    > Win-tangent 
+   > 
    > skriv: cmd 
-   > Enter
+   > 
+   > Tryck Enter
    
 2. Gå till varfri/önskad katalog
 3. Ladda ner filer från repo:
