@@ -1,8 +1,11 @@
-# Introduction: 
+# Introduktion: 
 Detta är ett projekt innehållande grund för genomförande av testkurs
 
 # Komma igång:
-Det finns stöd för - utöver kommandotolk och notepad++ - att arbeta med förjande IDE: Visual Studio Code och Eclipse. 
+Det finns stöd för - utöver kommandotolk och notepad++ - att arbeta med förjande IDEer: Visual Studio Code och Eclipse. 
+
+## Skapa en lokal kopia av repo
+Till en början behöver en lokal kopia av detta repository (här i Github) skapas via knappen "fork" ovanför. Behåll namnet på repository (test-course). 
 
 ## Visual Studio Code:
 För att få igång Visual Studio Code, öppna upp VS Code. För att synkronisera med git med VS Code:
@@ -16,10 +19,7 @@ För att få igång Visual Studio Code, öppna upp VS Code. För att synkroniser
 		* git branch branch_<valfri index: lämpligen dina initialer> 
 		
 ## Eclipse:
-To Be Defined
-
-## Skapa en lokal kopia av repo
-Skapa en fork av detta repository här i Github via knappen "fork" ovanför. Behåll namnet på repository (test-course). 
+Eclipse finns installerad men bör användas på eget bevåg. För tillfället finns inga beskrivningar på hur Eclipse ska integreras och användas. 
 		
 ## Terminal & Text Editor:
 Väljer du att arbeta med kommandotolken och test editor:
@@ -36,7 +36,7 @@ Väljer du att arbeta med kommandotolken och test editor:
 	5. Växla till lokal branch:
 		* git branch Session_<datum för kursstart>  
 
-## Skapa filer:
+# Skapa filer:
 	1. Kopiera mallfiler för app_ och test_ till mapparna application/ och test/
 	2. Döp om filer så att de har index <givet index>
 	3. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
