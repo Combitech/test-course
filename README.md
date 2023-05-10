@@ -5,7 +5,9 @@ Detta är ett projekt innehållande grund för genomförande av testkurs
 Det finns stöd för - utöver kommandotolk och notepad++ - att arbeta med förjande IDEer: Visual Studio Code och Eclipse. 
 
 ## Skapa en lokal kopia av repo
-Till en början behöver en lokal kopia av detta repository (här i Github) skapas via knappen "fork" ovanför. Behåll namnet på repository (test-course). 
+Till en början behöver en lokal kopia av detta repository (här i Github) skapas via knappen "fork" ovanför. 
+
+**OBS: Behåll namnet på repository (test-course).** 
 
 ## Visual Studio Code:
 För att få igång Visual Studio Code, öppna upp VS Code. För att synkronisera med git med VS Code:
@@ -51,14 +53,46 @@ Väljer du att arbeta med kommandotolken och test editor:
 		b. Spara app-fil i mapp application/
 	2. Skriv ditt test i test_<index>.test
 		a. Spara test-fil i mapp test/
+		
+Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/README.md) under test-katalogen.
 
 # Köra testfall:
+
 För att köra testfall behöver man stå i huvudkatalogen (nivån ovan) så att både test-course/ och Tools/ katalogen är synliga. 
+
 	1. Kör testfall genom kommando i terminal: 
 		* python Tools\test_one_file.py test-course\application\app_<index>.xx test-course\test\test_<index>.test
 	2. Utvärdera resultat:
 		* Sammanfattning visas i terminal: Pass/Fail
 		* Detaljerad resultat finns i mappen test-course\result\test_<index>_app_<index>.log
+**Tips:** för att slippa anropa långa sökvägar, skapa följande skripter i huvudkatalog för att förenkla anropen:
+
+## Skript: Köra alla tester mot alla program
+Skapa fil **test_all.py** i huvudkatalog med följande innehåll:
+``` 
+import subprocess
+
+subprocess.run(["python", ".\\Tools\\test_all.py"])
+```
+Anropa sedan `python test_all.py` för att köra alla tester
+
+## Skript: Kör specifikt test mot specifikt program
+Skapa fil **test_specific.py** i huvudkatalog med följande innehåll:
+```
+import subprocess
+import sys
+
+if __name__ == "__main__":
+    if (len(sys.argv) != 3):
+        print("Error, wrong number of parameters")
+        sys.exit(0)
+    
+    Program = sys.argv[1]
+    Testfile = sys.argv[2]
+    
+    subprocess.run(["python", ".\\Tools\\test_one_file.py", ".\\test-course\\application\\"+Program, ".\\test-course\\test\\"+Testfile])
+```
+Anropa sedan `python test_specific.py <app_aa>.yy <test_bb>.test` för att köra test **test_bb.test** mot program **app_aa.yy**
 
 # Git & Versionshantering:
 ## När du är nöjd med något, checka in i din lokala branch:
