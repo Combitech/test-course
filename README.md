@@ -78,7 +78,7 @@ Väljer du att arbeta med kommandotolken och test editor:
 1. Skriv ditt program i app_\<index\>.xx
 	- Ifall app är skriven i .c/.cpp, kompilera och länka till en exekverbar fil app_\<index\>.exe
 		
-		1.1 Kompilera med windows kommandotolk
+		1.1 Kompilera med windows kommandotolk eller terminal i VS Code
 			
 			> gcc -o app_xx.exe app_xx.c/.cpp
 			> app_xx.exe är nu skapad
@@ -86,8 +86,8 @@ Väljer du att arbeta med kommandotolken och test editor:
 		1.2 Kompilera med Visual Studio Code
 			
 			> Markera .c/.cpp-fil
-			> Välj meny Terminal/Run Build Task
-			> Välj C/C++ kompilator
+			> Välj meny Terminal/Run Build Task (ctrl + shift + B)
+			> Välj C/C++ kompilator (MinGW64)
 			> app_xx.exe är nu skapad 
 			 
 2. Skriv ditt test i test_\<index\>.test
@@ -97,7 +97,7 @@ Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/
 
 ## Köra testfall:
 För att köra testfall behöver man stå i huvudkatalogen (nivån ovan) så att både test-course/ och Tools/ katalogen är synliga. 
-1. Kör testfall genom kommando i terminal: 
+1. Kör testfall genom kommando i windows kommandotolk/terminal: 
 	
 	> python Tools\test_one_file.py test-course\application\app_\<index\>.xx test-course\test\test_\<index\>.test
 	
