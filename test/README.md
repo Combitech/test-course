@@ -20,6 +20,8 @@ Test Number är en identifierare av test steg. Detta är ett heltals nummer som 
 ## Input
 Input A, B, C är värden för respektive sidlängd som ska användas för att utvärdera programmet med. 
   
+### Operator
+Följande matematiska operatorer kan användas:
 | Värde | Indata |
 | ---    | --- |
 | Sidlängd anges som decimaltal | x.y |
@@ -28,6 +30,23 @@ Input A, B, C är värden för respektive sidlängd som ska användas för att u
 | Division | x/y | 
 | Exponent y | pow(x, y) |
 | kvadratroten ur | sqrt(x) |
+
+### Indata värden
+Indata kan anges på andra sätt än med explicita värden/decimaltal. 
+
+För att behålla värdet från föregående rad kan bindestreck användas. Observera att första testraden behöver innehålla explicita värden för indata.
+```
+  Test No.    Input A   Input B   Input C   Expected Result
+  1           1.0       1.0       1.0       Equilateral   # Liksidig triangel 
+  2           -         2.0       2.0       Isosceles     # Likbent triangel
+```
+För att göra modifieringar från föregående värde går det att skriva in senaste indatavariabeln.
+```
+  Test No.    Input A   Input B   Input C   Expected Result
+  1           1.0       1.0       1.0       Equilateral   # Liksidig triangel 
+  2           -         B+1.0     C+1.0     Isosceles     # Likbent triangel
+  3           -         B         C+0.5     None          # None
+```
   
 ## Expected Result
 Expected Result ska motsvara förväntat värde som programmet ska rapportera med avseende på Indata A, B och C.
