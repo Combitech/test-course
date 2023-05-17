@@ -37,9 +37,9 @@ Expected Result ska motsvara förväntat värde som programmet ska rapportera me
 | Equilateral     | Liksidig triangel     |
 | Isosceles       | Likbent triangel      |
 | Right           | Rätvinklig triangel   |
-| Other           | Ingen av ovanstående  |
+| None            | Ingen av ovanstående  |
   
-**Notera:** det finns stöd för att förvänta sig fler än ett resultat. Använd kommatecken för separera värden, ex. Resultat1, Resultat2.
+**Notera:** det finns stöd för att förvänta sig fler än ett resultat. Använd blandsteg/mellanslag för separera värden, ex. Resultat1 Resultat2.
 
 ## Kommentarer
 Kommentarer kan skrivas i slutet på varje rad och påbörjas med #
