@@ -77,9 +77,19 @@ Väljer du att arbeta med kommandotolken och test editor:
 ## Skriv program & testfall:
 1. Skriv ditt program i app_\<index\>.xx
 	- Ifall app är skriven i .c/.cpp, kompilera och länka till en exekverbar fil app_\<index\>.exe
-		1. \<instruktion för att kompilera\>
-		2. \<instruktion för att länka till app_\<index\>.exe
-	- Spara app-fil i mapp application/
+		
+		1.1 Kompilera med windows kommandotolk
+			
+			> gcc -o app_xx.exe app_xx.c/.cpp
+			> app_xx.exe är nu skapad
+			
+		1.2 Kompilera med Visual Studio Code
+			
+			> Markera .c/.cpp-fil
+			> Välj meny Terminal/Run Build Task
+			> Välj C/C++ kompilator
+			> app_xx.exe är nu skapad 
+			 
 2. Skriv ditt test i test_\<index\>.test
 	- Spara test-fil i mapp test/
 		
