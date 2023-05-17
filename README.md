@@ -22,11 +22,15 @@ För att få igång Visual Studio Code, öppna upp VS Code. För att synkroniser
 
    > git clone https://github.com/Combitech/test-course
 
-4. Skapa en lokal branch:
-	
-   > git branch branch_<valfri index: lämpligen dina initialer> 
+4. Skapa en "upstream" för huvud repo
+
+   > git remote add upstream https://github.com/Combitech/test-course
+
+5. Växla till branch för kursen:
+
+   > git checkout Session_<datum för kursstart>  
 	   
-5. För vidare anrop av python-skript, anropa skriptet i terminalen enligt följande: 
+6. För vidare anrop av python-skript, anropa skriptet i terminalen enligt följande: 
 
    > `python <skript>`
 		
@@ -53,9 +57,13 @@ Väljer du att arbeta med kommandotolken och test editor:
 
    > git remote add upstream https://github.com/Combitech/test-course
 
-5. Växla till lokal branch:
+5. Växla till branch för kursen:
 
-   > git branch Session_<datum för kursstart>  
+   > git checkout Session_<datum för kursstart>  
+
+6. För vidare anrop av python-skript, anropa skriptet i terminalen enligt följande: 
+
+   > `python <skript>`
 
 # Arbetsflöde
 ## Skapa filer:
