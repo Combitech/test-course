@@ -23,6 +23,7 @@ def Tri(A, B, C):
 
     '''
        Write your code here!
+       '' Comment '' 
     '''
         
 
