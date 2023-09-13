@@ -30,26 +30,22 @@ Följande matematiska operatorer kan användas:
 | Division | x/y | 
 | Exponent y | pow(x, y) |
 | kvadratroten ur | sqrt(x) |
+| sinus, cosinus, tangens | sin(x), cos(x), tan(x) |
+| pi | pi |
+| Föregående värde | -  |
 
 ### Indata värden
 Indata kan anges på andra sätt än med explicita värden/decimaltal. 
 
 För att behålla värdet från föregående rad kan bindestreck användas. Observera att första testraden behöver innehålla explicita värden för indata.
 ```
-  Test No.    Input A   Input B   Input C   Expected Result
-  1           1.0       1.0       1.0       Equilateral   # Liksidig triangel 
-  2           -         2.0       2.0       Isosceles     # Likbent triangel
-```
-För att göra modifieringar från föregående värde går det att skriva in senaste indatavariabeln.
-```
-  Test No.    Input A   Input B   Input C   Expected Result
-  1           1.0       1.0       1.0       Equilateral   # Liksidig triangel 
-  2           -         B+1.0     C+1.0     Isosceles     # Likbent triangel
-  3           -         B         C+0.5     None          # None
+  Test No.    Input A   Input B   Input C  | Expected Result
+  1           1.0       1.0       1.0      | Equilateral   # Liksidig triangel 
+  2           -         2.0       2.0      | Isosceles     # Likbent triangel
 ```
   
 ## Expected Result
-Expected Result ska motsvara förväntat värde som programmet ska rapportera med avseende på Indata A, B och C.
+Expected Result ska motsvara förväntat värde som programmet ska rapportera med avseende på Indata A, B och C. Förväntade värdet separeras från indata med hjälp av lodstreck "|"
 
 | Expected Result | Triangle              |
 | ---             | ---                   |
@@ -63,15 +59,15 @@ Expected Result ska motsvara förväntat värde som programmet ska rapportera me
 ## Kommentarer
 Kommentarer kan skrivas i slutet på varje rad och påbörjas med #
 ```
-  Test No.    Input A   Input B   Input C   Expected Result
-  1           1.0       1.0       1.0       Equilateral   # Liksidig triangel 
+  Test No.    Input A   Input B   Input C  | Expected Result
+  1           1.0       1.0       1.0      | Equilateral   # Liksidig triangel 
 ```
   
-## Exempel
+## Exempel Testfall
 ```
-  Test No.    Input A   Input B   Input C    Expected Result
-  1           1.0       2.0       2.5        Other        # Olika sidlängder
-  2           1.0       2.0       sqrt(5.0)  Right        # Rätvinklig triangel 
+  Test No.    Input A   Input B   Input C   | Expected Result
+  1           1.0       2.0       2.5       | Other        # Olika sidlängder
+  2           1.0       2.0       sqrt(5.0) | Right        # Rätvinklig triangel 
   
 ```
   
