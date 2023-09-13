@@ -71,7 +71,8 @@ Väljer du att arbeta med kommandotolken och test editor:
 2. Döp om filer så att de har index \<givet index\>
 3. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
 	i. Python (.py)
-	ii. Kodfil som kompileras och länkas till en exekverbar fil (.exe)
+	ii. Kodfil som kompileras och länkas till en exekverbar fil (.exe) - stöd finns för .c och .cpp
+	iii. Ifall flera applikationer behöver kompileras, använd funktion compile_apps.py i Tools/ katalogen
 
 	
 ## Skriv program & testfall:
@@ -96,10 +97,10 @@ Väljer du att arbeta med kommandotolken och test editor:
 Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/README.md) under test-katalogen.
 
 ## Köra testfall:
-För att köra testfall behöver man stå i huvudkatalogen (nivån ovan) så att både test-course/ och Tools/ katalogen är synliga. 
+För att köra testfall så anropas funktioner i katalogen Tools/ 
 1. Kör testfall genom kommando i windows kommandotolk/terminal: 
 	
-	> python Tools\test_one_file.py test-course\application\app_\<index\>.xx test-course\test\test_\<index\>.test
+	> python <Sökväg>\Tools\test_one_file.py \application\app_\<index\>.xx \test\test_\<index\>.test
 	
 2. Utvärdera resultat:
 	* Sammanfattning visas i terminal: Pass/Fail
@@ -107,32 +108,6 @@ För att köra testfall behöver man stå i huvudkatalogen (nivån ovan) så att
 	
 **Tips:** för att slippa anropa långa sökvägar, skapa följande skripter i huvudkatalog för att förenkla anropen:
 
-### Skript: Köra alla tester mot alla program
-Skapa fil **test_all.py** i huvudkatalog med följande innehåll:
-``` 
-import subprocess
-
-subprocess.run(["python", ".\\Tools\\test_all.py"])
-```
-Anropa sedan `python test_all.py` för att köra alla tester
-
-### Skript: Kör specifikt test mot specifikt program
-Skapa fil **test_specific.py** i huvudkatalog med följande innehåll:
-```
-import subprocess
-import sys
-
-if __name__ == "__main__":
-    if (len(sys.argv) != 3):
-        print("Error, wrong number of parameters")
-        sys.exit(0)
-    
-    Program = sys.argv[1]
-    Testfile = sys.argv[2]
-    
-    subprocess.run(["python", ".\\Tools\\test_one_file.py", ".\\test-course\\application\\"+Program, ".\\test-course\\test\\"+Testfile])
-```
-Anropa sedan `python test_specific.py <app_aa>.yy <test_bb>.test` för att köra test **test_bb.test** mot program **app_aa.yy**
 
 ## Git & Versionshantering:
 ### När du är nöjd med något, checka in i din lokala branch:
