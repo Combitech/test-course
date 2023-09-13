@@ -98,15 +98,19 @@ Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/
 
 ## Köra testfall:
 För att köra testfall så anropas funktioner i katalogen Tools/ 
-1. Kör testfall genom kommando i windows kommandotolk/terminal: 
+
+1a. Kör ett testfall genom kommando i windows kommandotolk/Visual Studio Code terminal: 
 	
 	> python <Sökväg>\Tools\test_one_file.py \application\app_\<index\>.xx \test\test_\<index\>.test
-	
+
+1b. Köra samtliga testfall mot samtliga applikationer genom kommando i windows kommandotolk/Visual Studio Code terminal: 
+
+	> python <Sökväg>\Tools\test_all.py
+ 
 2. Utvärdera resultat:
 	* Sammanfattning visas i terminal: Pass/Fail
 	* Detaljerad resultat finns i mappen test-course\result\test_\<index\>_app_\<index\>.log
-	
-**Tips:** för att slippa anropa långa sökvägar, skapa följande skripter i huvudkatalog för att förenkla anropen:
+ 	* Om test_all.py har körts så finns även en sammanfattningsfil i result\summary.txt	
 
 
 ## Git & Versionshantering:
