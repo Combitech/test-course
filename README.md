@@ -38,13 +38,13 @@ För att få igång Visual Studio Code, öppna upp VS Code. För att synkroniser
 Eclipse finns installerad men bör användas på eget bevåg. För tillfället finns inga beskrivningar på hur Eclipse ska integreras och användas. 
 		
 ### Terminal & Text Editor:
-Väljer du att arbeta med kommandotolken och test editor:
+Väljer du att arbeta med powershell och text editor:
 
 1. Öppna upp kommandotolk:
 
    > Win-tangent 
    > 
-   > skriv: cmd 
+   > skriv: powershell 
    > 
    > Tryck Enter
    
@@ -71,27 +71,30 @@ Väljer du att arbeta med kommandotolken och test editor:
 2. Döp om filer så att de har index \<givet index\>
 3. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
 	i. Python (.py)
-	ii. Kodfil som kompileras och länkas till en exekverbar fil (.exe) - stöd finns för .c och .cpp
+	ii. Kodfil som kompileras och länkas till en exekverbar fil - stöd finns för .c, .cpp, .adb, .java
 	iii. Ifall flera applikationer behöver kompileras, använd funktion compile_apps.py i Tools/ katalogen
-
 	
 ## Skriv program & testfall:
 1. Skriv ditt program i app_\<index\>.xx
-	- Ifall app är skriven i .c/.cpp, kompilera och länka till en exekverbar fil app_\<index\>.exe
+	- Ifall app är skriven i .c/.cpp/.abd/.java, kompilera och länka till en exekverbar fil app_\<index\>.exe eller app_\<index\>.class (.java-fil)
 		
-		1.1 Kompilera med windows kommandotolk eller terminal i VS Code
-			
-			> gcc -o app_xx.exe app_xx.c/.cpp
-			> app_xx.exe är nu skapad
-			
-		1.2 Kompilera med Visual Studio Code
-			
-			> Markera .c/.cpp-fil
-			> Välj meny Terminal/Run Build Task (ctrl + shift + B)
-			> Välj C/C++ kompilator (MinGW64)
-			> app_xx.exe är nu skapad 
+	Kompilera specifik app med windows powershell eller terminal i VS Code
+
+ 		> gcc -o app_xx.exe app_xx.c
+   		> g++ -o app_xx.exe app_xx.cpp
+   		> gnatmake -o app_xx.exe app_xx.adb
+
+ 	app_xx.exe är nu skapad
+
+   		> javac -d . app_xx.java
+
+   	app_xx.class är nu skapad
+   
+   	Kompilera samtliga app-filer (exkl .py)
+
+   		> python <sökväg>\Tools\compile_apps.py
 			 
-2. Skriv ditt test i test_\<index\>.test
+3. Skriv ditt test i test_\<index\>.test
 	- Spara test-fil i mapp test/
 		
 Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/README.md) under test-katalogen.
@@ -99,11 +102,11 @@ Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/
 ## Köra testfall:
 För att köra testfall så anropas funktioner i katalogen Tools/ 
 
-1a. Kör ett testfall genom kommando i windows kommandotolk/Visual Studio Code terminal: 
+1a. Kör ett testfall genom kommando i windows powershell/Visual Studio Code terminal: 
 	
-	> python <Sökväg>\Tools\test_one_file.py \application\app_\<index\>.xx \test\test_\<index\>.test
+	> python <Sökväg>\Tools\test_one_file.py app_\<index\>.xx test_\<index\>.test
 
-1b. Köra samtliga testfall mot samtliga applikationer genom kommando i windows kommandotolk/Visual Studio Code terminal: 
+1b. Köra samtliga testfall mot samtliga applikationer genom kommando i windows powershell/Visual Studio Code terminal: 
 
 	> python <Sökväg>\Tools\test_all.py
  
@@ -118,7 +121,8 @@ För att köra testfall så anropas funktioner i katalogen Tools/
 1. Status/Kolla status: git status
 	* Ex. git status
 2. Stage/Lägg till nya filer: git add [filer], 
-	* Ex. git add application/app_<index>.xx (.py, .exe)
+	* Ex. git add application/app_<index>.xx (.py, .c, .cpp, .adb, .java)  "Checka ej in .exe eller .class filer"
+ 	* Ex. git add test/test_<index>.test
 3. Commit/Spara till lokal repo: git commit -m ["logg meddelande"]
 	* Ex. git commit -m "add/update of app_<index>.py"
 
