@@ -1,0 +1,25 @@
+#-- General
+## Ignore .exe files
+*.exe
+## Ignore object files
+*.o
+
+## Ignore subfolders
+*\
+
+#-- Java
+## Ignore class files
+*.class
+
+#-- ADA
+## Ignore Ada libraries
+
+*.ali
+
+#-- .NET / C#
+## Ignore project folders
+obj\
+bin\
+## Ignore project files
+*.csproj
+*.pbd
