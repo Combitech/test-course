@@ -1,13 +1,15 @@
 # Introduktion: 
-Detta är ett projekt innehållande grund för genomförande av testkurs
+Detta är ett projekt innehållande grund för genomförande av kurs i test av programvara.
 
 # Komma igång:
-Det finns stöd för - utöver kommandotolk och notepad++ - att arbeta med förjande IDEer: Visual Studio Code och Eclipse. 
+I miljön finns det stöd för - utöver kommandotolk/powershell och notepad++ - att arbeta med förjande IDEer: 
+* Visual Studio Code - Fullt stöd
+* Eclipse - Används på eget bevåg
 
 ## Skapa en lokal kopia av repo
 Till en början behöver en lokal kopia av detta repository (här i Github) skapas via knappen "fork" ovanför. 
 
-**OBS: Behåll namnet på repository (test-course).** 
+**OBS: Behåll namnet på repository (test-course) då verktygen kräver detta.** 
 
 ## Val av verktyg
 ### Visual Studio Code:
@@ -37,17 +39,25 @@ För att få igång Visual Studio Code, öppna upp VS Code. För att synkroniser
 ### Eclipse:
 Eclipse finns installerad men bör användas på eget bevåg. För tillfället finns inga beskrivningar på hur Eclipse ska integreras och användas. 
 		
-### Terminal & Text Editor:
-Väljer du att arbeta med powershell och text editor:
+### Kommandotolk/Powershell & Text Editor:
+Väljer du att arbeta med kommandotolk eller powershell, och text editor:
 
-1. Öppna upp kommandotolk:
+1a. Öppna upp kommandotolk:
 
    > Win-tangent 
    > 
-   > skriv: powershell 
+   > skriv: cmd 
    > 
    > Tryck Enter
-   
+
+1b. Öppna upp Powershell:
+
+   > Win-tangent 
+   > 
+   > skriv: powershell
+   > 
+   > Tryck Enter
+
 2. Gå till varfri/önskad katalog
 3. Ladda ner filer från repo:
    
@@ -89,12 +99,20 @@ Kompilera specifik app med windows powershell eller terminal i VS Code
 	
 En special behövs för .cs filer. Antingen används compile_apps.py i Tools/ katalogen, eller utför åtgärder manuellt
 
-	1. skapa dotnet projekt: dotnet new console -f net8.0 -o app_xx -n app_xx
-	2. Ta bort skapad Project.cs
-	3. Kopiera över app_xx.cs mall till skapad projektmapp
-	4. Bygg .NET projekt: dotnet publish -r win-x64  /p:IncludeNativeLibrariesForSelfExtract=true /p:PublishSingleFile=true /p:AssemblyName=app_xx -o ..
-	5. Kopiera app_xx.cs och skapad app_xx.exe till mapp application/
- 
+	1. skapa dotnet projekt i underkatalog app_xx/: 
+	
+	 	> dotnet new console -f net8.0 -o app_xx -n app_xx
+	 
+	2. Ta bort skapad Project.cs i katalog app_xx/
+	
+	3. Kopiera över app_xx.cs mall till katalog app_xx/
+	
+	4. ställ dig i katalog app_xx/ och bygg .NET projekt: 
+	
+		> dotnet publish -r win-x64  /p:IncludeNativeLibrariesForSelfExtract=true /p:PublishSingleFile=true /p:AssemblyName=app_xx -o ..
+	
+	5. Kopiera app_xx.cs och skapad app_xx.exe till ovanliggande katalog application/
+
 __OBS: exempel är för fil app_xx, byt ut xx mot dina specifika initialer.__
 
 app_xx.exe är nu skapad
@@ -111,7 +129,8 @@ Kompilera samtliga app-filer (exkl .py)
 			 
 ## Steg 2b. Utveckla testfall (test_)
 Skriv ditt test i test_\<index\>.test
-	- Spara test-fil i mapp test/
+	
+Spara test-fil i mapp test/
 		
 Format, innehåll och syntax för .test-fil finns beskrivet i [README.md](/test/README.md) under test-katalogen.
 
