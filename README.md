@@ -4,7 +4,7 @@ Detta är ett projekt innehållande grund för genomförande av kurs i test av p
 # Komma igång:
 I miljön finns det stöd för - utöver kommandotolk/powershell och notepad++ - att arbeta med förjande IDEer: 
 * Visual Studio Code - Fullt stöd
-* Eclipse - Används på eget bevåg
+* Eclipse - Installerad men används på eget bevåg
 
 ## Skapa en lokal kopia av repo
 Till en början behöver en lokal kopia av detta repository (här i Github) skapas via knappen "fork" ovanför. 
@@ -34,7 +34,7 @@ För att få igång Visual Studio Code, öppna upp VS Code. För att synkroniser
 	   
 6. För vidare anrop av python-skript, anropa skriptet i terminalen enligt följande: 
 
-   > `python <skript>`
+   > `python <sökväg\skript>`
 		
 ### Eclipse:
 Eclipse finns installerad men bör användas på eget bevåg. För tillfället finns inga beskrivningar på hur Eclipse ska integreras och användas. 
@@ -78,26 +78,28 @@ Väljer du att arbeta med kommandotolk eller powershell, och text editor:
 # Arbetsflöde
 ## Steg 1. Skapa filer:
 Börja med att:
-	1. Kopiera mallfiler för app_ och test_ till mapparna **application/** och **test/**
-	2. Döp om filer så att de har index \<givet index\> - dina valda initialer
-	3. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
-		i. Python (.py)
-		ii. Kodfil som kompileras och länkas till en exekverbar fil - stöd finns för .c (C), .cpp (C++), .cs (C#/.NET), .adb (ADA), .java (JAVA), .pas (Pascal)
-		iii. Ifall flera applikationer behöver kompileras, använd funktion compile_apps.py i Tools/ katalogen
+1. Kopiera mallfiler för app_ och test_ till mapparna **application/** och **test/**
+2. Döp om filer så att de har index \<givet index\> - dina valda initialer
+3. Välj programmeringsspråk för applikation "app_". Stöd för följande språk:
+   - Python (.py)
+   - Kodfil som kompileras och länkas till en exekverbar/class fil - stöd finns för .c (C), .cpp (C++), .cs (C#/.NET), .adb (ADA), .java (JAVA), .pas (Pascal).
+     * Använd skript compile_file.py i Tools/ katalogen för att kompilera önskad app-fil.
+   - Ifall flera applikationer behöver kompileras, använd funktion compile_apps.py i Tools/ katalogen
 	
 ## Steg 2a. Utveckla program (app_):
 Skriv ditt program i app_\<index\>.xx
 
-Ifall app är skriven i .c/.cpp/.cs/.abd/.java/.pas, kompilera och länka till en exekverbar fil app_\<index\>.exe
+Ifall app är skriven i .c/.cpp/.cs/.adb/.java/.pas, kompilera och länka till en exekverbar fil app_\<index\>.exe
 		
-Kompilera specifik app med windows powershell eller terminal i VS Code
+Kompilera specifik app med windows powershell eller terminal i VS Code. Använd gärna skript compile_file.py i Tools/ katalogen. Alternativt kan följande manuellt kommando användas:
 
 	> gcc -o app_xx.exe app_xx.c
 	> g++ -o app_xx.exe app_xx.cpp
 	> gnatmake -o app_xx.exe app_xx.adb
 	> fpc app_xx.pas
+ 	> javac -d . app_xx.java 
 	
-En special behövs för .cs filer. Antingen används compile_apps.py i Tools/ katalogen, eller utför åtgärder manuellt
+En special behövs för .cs filer. Antingen används compile_file/apps.py i Tools/ katalogen, eller utför åtgärder manuellt
 
 	1. skapa dotnet projekt i underkatalog app_xx/: 
 	
