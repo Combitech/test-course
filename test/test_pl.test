@@ -1,0 +1,8 @@
+Test No    Input A          Input B             Input C              | Expected Results
+# Verify that app outputs Equilateral when A, B and C are equal
+#
+1          1e-100.0-0.0101  1e-100.0-0.0101     1e-100.0-0.0101      | Error                 # a: low-d , b: low-d , c: low-d 
+2          -                -                   1e-100.0+0.0101      | Error                 # a: low-d , b: low-d , c: low+d
+3          -                1e-100.0+0.0101     1e-100.0-0.0101      | Error                 # a: low-d , b: low+d , c: low-d
+4          1e-100.0+0.0101  -                   -                    | Error                 # a: low+d , b: low+d , c: low-d
+5          1e-100.0+0.0101  -                   -                    | Error                 # a: low+d , b: low+d , c: low-d
