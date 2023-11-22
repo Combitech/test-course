@@ -43,7 +43,7 @@ def is_triangle(A, B, C):
 def calc_angles(A, B, C):
     a = math.acos((B*B + C*C - A*A)/(2*B*C))
     b = math.acos((B*B - C*C + A*A)/(2*B*A))
-    c = math.acos((- B*B + C*C + A*A)/(2*A*C))
+    c = math.acos((-B*B + C*C + A*A)/(2*A*C))
     
     return (math.degrees(a),
             math.degrees(b),
@@ -56,7 +56,6 @@ def Tri(A, B, C):
         return
     
     angles = calc_angles(A, B, C)
-    print(angles)
     
     found = False
     # Check for equilateral
@@ -65,12 +64,14 @@ def Tri(A, B, C):
         and math.isclose(A,C, rel_tol=PRECISION)):
         found = True
         Report_As_Equilateral()
+    
     # Check for isosceles
     if (math.isclose(A,B, rel_tol=PRECISION)
         or math.isclose(B,C, rel_tol=PRECISION)
         or math.isclose(A,C, rel_tol=PRECISION)):
         found = True
         Report_As_Isosceles()
+    
     # Check for right
     if (math.isclose(angles[0], 90.0, rel_tol=PRECISION) or
         math.isclose(angles[1], 90.0, rel_tol=PRECISION) or
@@ -80,10 +81,6 @@ def Tri(A, B, C):
     # None
     if not found:
         Report_As_None()
-    '''
-       Write your code here!
-    '''
-        
 
 
 if __name__ == "__main__":
