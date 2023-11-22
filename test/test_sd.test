@@ -1,0 +1,57 @@
+Test No    Input A    		 	Input B     		Input C   		| Expected Results
+#
+# TC 1
+#
+1          1.0        		 	1.0         		1.0       		| Equilateral Isosceles   # Start of TC1
+2          1.0*1.00101        	1.0         		1.0       		| Isosceles
+3          1.0         			1.0*1.00101      	1.0       		| Isosceles
+4          1.0         			1.0         		1.0*1.00101		| Isosceles
+5          1.0*0.99899        	1.0         		1.0       		| Isosceles
+6          1.0         			1.0*0.99899   		1.0       		| Isosceles
+7          1.0         			1.0         		1.0*0.99899		| Isosceles     # End of TC1
+#
+# TC 2
+#
+8          1.0         			1.0         		2.0       		| Isosceles     # Start of TC2
+9          1.0         			2.0         		1.0       		| Isosceles
+10         2.0         			1.0         		1.0       		| Isosceles
+11         1.0*1.00101      	1.0         		2.0       		| None
+12         1.0*0.99899         	1.0         		2.0       		| None
+13         1.0         			1.0*1.00101   		2.0       		| None
+14         1.0         			1.0*0.99899   		2.0       		| None
+15         1.0*1.00101			2.0         		1.0       		| None
+16         1.0*0.99899   		2.0         		1.0       		| None
+17         1.0         			2.0         		1.0*1.00101		| None
+18         1.0         			2.0         		1.0*0.99899		| None
+19         2.0         			1.0*1.00101     	1.0       		| None
+20         2.0         			1.0*0.99899 		1.0       		| None
+21         2.0         			1.0         		1.0*1.00101 	| None
+22         2.0         			1.0         		1.0*0.99899  	| None
+#
+# TC3
+#
+23                                                            		| Error
+24         1.0                                                 		| Error
+25         1.0         	1.0                                 		| Error
+26         1.0         	1.0             1.0           1.0     		| Error
+#
+# TC4
+#
+27         0.0         			1.0         		2.0       		| Error
+28         1.0         			0.0         		1.0       		| Error
+29         2.0         			1.0         		0.0       		| Error
+#
+# TC5
+#
+30         -5.0      			1.0         		2.0       		| Error
+31         1.0         			-3.0         		1.0       		| Error
+32         2.0         			1.0         		-2.0       		| Error
+#
+# TC6
+#
+33         1e100    			0.9e100         	0.9e100   		| Isosceles
+34         0.9e100         		1e100         		0.9e100     	| Isosceles
+35         0.9e100    			0.9e100      		1e100       	| Isosceles
+33         1e100*1.001			0.9e100         	0.9e100   		| Isosceles
+34         0.9e100         		1e100*0.001   		0.9e100     	| Isosceles
+35         0.9e100    			0.9e100      		1e100*0.001  	| Isosceles
