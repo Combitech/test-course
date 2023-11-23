@@ -16,15 +16,95 @@ def Report_As_None():
 def Report_As_Error():
     print("Error ", end='')
 
+def is_in_range(A, B, C):
+   min_value = 1*math.pow(10, -100)
+   max_value = 1*math.pow(10, 100)
+   result= False
+
+   if A >= min_value and A <= max_value and B >= min_value and B <= max_value and C >= min_value and C <= max_value:
+      result= True
+
+   return result
+
+def is_triangle (A, B, C):
+    result=False
+    if (A+B)>C and (B+C)>A and (A+C)>B:
+        result = True
+    return result
+
+def is_equilateral (A,B,C):
+   result = False
+
+   if math.isclose(A, B, rel_tol=0.001) and math.isclose(A, C, rel_tol=0.001) and math.isclose(B, C, rel_tol=0.001):
+      result = True
+
+   return result
+
+
+def is_isosceles (A, B, C):
+   result = False
+   
+   if math.isclose(A, B, rel_tol=0.001):
+      result = True
+   elif math.isclose(A, C, rel_tol=0.001):
+      result = True
+   elif math.isclose(B, C, rel_tol=0.001):
+      result = True
+
+   return result
+
+def is_right(A,B,C):
+    result = False
+    a = math.acos((pow(B,2) + pow(C,2) - pow(A,2)) / (2*B*C))
+    b = math.acos((pow(A,2) + pow(C,2) - pow(B,2)) / (2*A*C))
+    c = math.acos((pow(A,2) + pow(B,2) - pow(C,2)) / (2*A*B))
+    
+    if math.isclose(a, math.pi / 2, rel_tol=0.001):
+        result = True
+
+    if math.isclose(b, math.pi / 2, rel_tol=0.001):
+        result = True
+
+    if math.isclose(c, math.pi / 2, rel_tol=0.001):
+        result = True
+
+    return result
+
 
 # Triangle function
 def Tri(A, B, C):
 
+    ### Error handling ######
 
-    '''
-       Write your code here!
-    '''
-        
+    # Check valid range
+    if is_in_range(A,B,C) == False:
+        Report_As_Error()
+        return
+
+    # Check triangle definition
+    if is_triangle(A,B,C) == False:
+        Report_As_Error()
+        return
+
+    #############
+
+    is_any_type = False
+
+    if is_equilateral(A,B,C):
+        Report_As_Equilateral()
+        is_any_type = True
+    elif is_isosceles(A,B,C):
+        Report_As_Isosceles()
+        is_any_type = True
+
+    if is_right(A,B,C):
+        Report_As_Right()
+        is_any_type = True
+
+    # None
+    if is_any_type == False:
+        Report_As_None()
+
 
 
 if __name__ == "__main__":

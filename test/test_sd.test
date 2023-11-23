@@ -2,56 +2,93 @@ Test No    Input A    		 	Input B     		Input C   		| Expected Results
 #
 # TC 1
 #
-1          1.0        		 	1.0         		1.0       		| Equilateral Isosceles   # Start of TC1
-2          1.0*1.00101        	1.0         		1.0       		| Isosceles
-3          1.0         			1.0*1.00101      	1.0       		| Isosceles
-4          1.0         			1.0         		1.0*1.00101		| Isosceles
-5          1.0*0.99899        	1.0         		1.0       		| Isosceles
-6          1.0         			1.0*0.99899   		1.0       		| Isosceles
-7          1.0         			1.0         		1.0*0.99899		| Isosceles     # End of TC1
+1          1.0        		 	1.0         		1.0       		| Equilateral   # Start of TC1
+2          1.0*1.00099		 	1.0         		1.0       		| Equilateral
+3          1.0        		 	1.0*1.00099         1.0       		| Equilateral
+4          1.0        		 	1.0         		1.0*1.00099		| Equilateral
+5          1.0*0.99901  	 	1.0         		1.0       		| Equilateral
+6          1.0        		 	1.0*0.99901 		1.0       		| Equilateral
+7          1.0        		 	1.0         		1.0*0.99901 	| Equilateral
+8          1.0*1.00101        	1.0         		1.0       		| Isosceles
+9          1.0         			1.0*1.00101      	1.0       		| Isosceles
+10         1.0         			1.0         		1.0*1.00101		| Isosceles
+11         1.0*0.99899        	1.0         		1.0       		| Isosceles
+12         1.0         			1.0*0.99899   		1.0       		| Isosceles
+13         1.0         			1.0         		1.0*0.99899		| Isosceles     # End of TC1
 #
 # TC 2
 #
-8          1.0         			1.0         		2.0       		| Isosceles     # Start of TC2
-9          1.0         			2.0         		1.0       		| Isosceles
-10         2.0         			1.0         		1.0       		| Isosceles
-11         1.0*1.00101      	1.0         		2.0       		| None
-12         1.0*0.99899         	1.0         		2.0       		| None
-13         1.0         			1.0*1.00101   		2.0       		| None
-14         1.0         			1.0*0.99899   		2.0       		| None
-15         1.0*1.00101			2.0         		1.0       		| None
-16         1.0*0.99899   		2.0         		1.0       		| None
-17         1.0         			2.0         		1.0*1.00101		| None
-18         1.0         			2.0         		1.0*0.99899		| None
-19         2.0         			1.0*1.00101     	1.0       		| None
-20         2.0         			1.0*0.99899 		1.0       		| None
-21         2.0         			1.0         		1.0*1.00101 	| None
-22         2.0         			1.0         		1.0*0.99899  	| None
+14         2.0         			2.0         		3.0       		| Isosceles     # Start of TC2
+15         2.0         			3.0         		2.0       		| Isosceles
+16         3.0         			2.0         		2.0       		| Isosceles
+17         2.0*1.00099      	2.0         		3.0       		| Isosceles
+18         2.0         			2.0*1.00099   		3.0       		| Isosceles
+19         2.0*0.99901         	2.0         		3.0       		| Isosceles
+20         2.0         			2.0*0.99901   		3.0       		| Isosceles
+21         2.0*1.00099			3.0         		2.0       		| Isosceles
+22         2.0         			3.0         		2.0*1.00099		| Isosceles
+23         2.0*0.99901   		3.0         		2.0       		| Isosceles
+24         2.0         			3.0         		2.0*0.99901		| Isosceles
+25         3.0         			2.0*1.00101     	2.0       		| None
+26         3.0         			2.0         		2.0*1.00101 	| None
+27         3.0         			2.0*0.99899 		2.0       		| None
+28         3.0         			2.0         		2.0*0.99899  	| None
+29         2.0*1.00101      	2.0         		3.0       		| None
+30         2.0         			2.0*1.00101   		3.0       		| None
+31         2.0*0.99899         	2.0         		3.0       		| None
+32         2.0         			2.0*0.99899   		3.0       		| None
+33         2.0*1.00101			3.0         		2.0       		| None
+34         2.0         			3.0         		2.0*1.00101		| None
+35         2.0*0.99899   		3.0         		2.0       		| None
+36         2.0         			3.0         		2.0*0.99899		| None
+37         3.0         			2.0*1.00101     	2.0       		| None
+38         3.0         			2.0         		2.0*1.00101 	| None
+39         3.0         			2.0*0.99899 		2.0       		| None
+40         3.0         			2.0         		2.0*0.99899  	| None
 #
 # TC3
 #
-23                                                            		| Error
-24         1.0                                                 		| Error
-25         1.0         	1.0                                 		| Error
-26         1.0         	1.0             1.0           1.0     		| Error
+41                                                            		| Error
+42         1.0                                                 		| Error
+43         1.0         	1.0                                 		| Error
+44         1.0         	1.0             1.0           1.0     		| Error
 #
 # TC4
 #
-27         0.0         			1.0         		2.0       		| Error
-28         1.0         			0.0         		1.0       		| Error
-29         2.0         			1.0         		0.0       		| Error
+45         0.0         			1.0         		2.0       		| Error
+46         1.0         			0.0         		1.0       		| Error
+47         2.0         			1.0         		0.0       		| Error
 #
 # TC5
 #
-30         -5.0      			1.0         		2.0       		| Error
-31         1.0         			-3.0         		1.0       		| Error
-32         2.0         			1.0         		-2.0       		| Error
+48         -5.0      			1.0         		2.0       		| Error
+49         1.0         			-3.0         		1.0       		| Error
+50         2.0         			1.0         		-2.0       		| Error
 #
 # TC6
 #
-33         1e100    			0.9e100         	0.9e100   		| Isosceles
-34         0.9e100         		1e100         		0.9e100     	| Isosceles
-35         0.9e100    			0.9e100      		1e100       	| Isosceles
-33         1e100*1.001			0.9e100         	0.9e100   		| Isosceles
-34         0.9e100         		1e100*0.001   		0.9e100     	| Isosceles
-35         0.9e100    			0.9e100      		1e100*0.001  	| Isosceles
+51         1e100*1.001   		0.9e100         	0.9e100   		| Error
+52         0.9e100             	1e100*1.001   		0.9e100     	| Error
+53         0.9e100    			0.9e100      		1e100*1.001   	| Error
+54         1e100*0.999			0.9e100         	0.9e100   		| Isosceles
+55         0.9e100            	1e100*0.999   		0.9e100     	| Isosceles
+56         0.9e100    			0.9e100      		1e100*0.999  	| Isosceles
+#
+# TC7
+#
+57         1.001e-100   		0.9e-100         	0.9e-100   		| Isosceles
+58         0.9e-100             1.001e-100   		0.9e-100     	| Isosceles
+59         0.9e-100    			0.9e-100      		1.001e-100   	| Isosceles
+60         0.999e-100			0.9e-100         	0.9e-100   		| Error
+61         0.9e-100            	0.999e-100          0.9e-100     	| Error
+62         0.9e-100    			0.9e-100      		0.999e-100  	| Error
+#
+# TC8
+#
+63         2.0             		2.0              	2.0*sqrt(2.0)   | Isosceles Right
+64         2.0             		2.0*sqrt(2.0)       2.0             | Isosceles Right
+65         2.0*sqrt(2.0)        2.0              	2.0             | Isosceles Right
+#
+# TC9
+#
+66         2.0             		2.0              	1.0e98          | Error
