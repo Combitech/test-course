@@ -1,0 +1,46 @@
+Test No    Input A          Input B             Input C              | Expected Results
+# Verify that app outputs Equilateral when A, B and C are equal
+#       
+Eq.1         1                1                   1                    | Equilateral
+Eq.2         1-0.001          1                   1                    | Equilateral
+Eq.3         1                1-0.001             1                    | Equilateral
+Eq.4         1                1                   1-0.001              | Equilateral
+Eq.5         1+0.001-0.00001  1                   1                    | Equilateral
+Eq.6         1                1+0.001-0.00001     1                    | Equilateral
+Eq.7         1                1                   1+0.001-0.00001      | Equilateral
+Eq.8         1-0.001+0.0001   1                   1                    | Equilateral
+Eq.9         1                1-0.001+0.0001      1                    | Equilateral
+Eq.10        1                1                   1-0.001+0.0001       | Equilateral
+Eq.11        1-0.001-0.0001   1                   1                    | Error
+Eq.12        1                1-0.001-0.0001      1                    | Error
+Eq.12        1                1                   1-0.001-0.0001       | Error
+Eq.13        1+0.001+0.0001   1                   1                    | Error
+Eq.14        1                1+0.001+0.0001      1                    | Error
+Eq.15        1                1                   1+0.001+0.0001       | Error
+#
+Iso.1         1+0.001-0.00001       1                        5                    | Isosceles
+Iso.2         1                     1+0.001-0.00001          5                    | Isosceles
+Iso.3         5                     1                        1+0.001-0.00001      | Isosceles
+Iso.4         1-0.001+0.00001       1                        5                    | Isosceles
+Iso.5         1                     1-0.001+0.00001          5                    | Isosceles
+Iso.6         5                     1                        1-0.001+0.00001      | Isosceles
+Iso.7         1                     1                        5                    | Isosceles
+Iso.8         1                     1                        5                    | Isosceles
+Iso.9         5                     1                        1                    | Isosceles
+Iso.10        1-0.001-0.00001       1                        5                    | Error
+Iso.11        5                     1-0.001-0.00001          1                    | Error
+Iso.12        5                     1                        1-0.001-0.00001      | Error
+Iso.13        5                     0                        1                    | Error
+Iso.14        0                     1                        1                    | Error
+#
+Right.1         3                4                   5                    | Right
+Right.2         3                5                   4                    | Right
+Right.3         5                4                   3                    | Right
+Right.4         4                3                   5                    | Right
+Right.5         3+0.0009         4                   5                    | Right
+Right.6         3                4+0.0009            5                    | Right
+Right.7         3                4                   5+0.0009             | Right
+Right.8         3-0.001+0.00001  4                   5                    | Right
+Right.9         3                4-0.001+0.00001     5                    | Right
+Right.10        3                4                   5-0.001+0.00001      | Right
+#
