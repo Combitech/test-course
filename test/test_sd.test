@@ -76,12 +76,12 @@ Test No    Input A    		 	Input B     		Input C   		| Expected Results
 #
 # TC7
 #
-57         1.001e-100   		0.9e-100         	0.9e-100   		| Isosceles
-58         0.9e-100             1.001e-100   		0.9e-100     	| Isosceles
-59         0.9e-100    			0.9e-100      		1.001e-100   	| Isosceles
-60         0.999e-100			0.9e-100         	0.9e-100   		| Error
-61         0.9e-100            	0.999e-100          0.9e-100     	| Error
-62         0.9e-100    			0.9e-100      		0.999e-100  	| Error
+57         1.00001e-100   		1.2e-100         	1.2e-100    	| Isosceles
+58         1.2e-100             1.00001e-100   		1.2e-100     	| Isosceles
+59         1.2e-100     		1.2e-100      		1.00001e-100   	| Isosceles
+60         0.999e-100			1.1e-100         	1.1e-100   		| Error
+61         1.1e-100            	0.999e-100          1.1e-100     	| Error
+62         1.1e-100    			1.1e-100      		0.999e-100  	| Error
 #
 # TC8
 #
@@ -92,3 +92,28 @@ Test No    Input A    		 	Input B     		Input C   		| Expected Results
 # TC9
 #
 66         2.0             		2.0              	1.0e98          | Error
+#
+# TC10
+#
+67         3.0             		4.0              	5.0             | Right
+68         3.0             		4.0              	4.99627         | Right  #OK
+69         3.0             		4.0              	5.00373         | Right  #OK
+70         3.0             		4.0              	4.99619         | None
+71         3.0             		4.0              	5.00381         | None  #Not OK
+72         3.0             		4.99627            	4.0             | Right
+73         3.0             		5.00373            	4.0             | Right
+74         3.0             		4.99619            	4.0             | None
+75         3.0             		5.00381           	4.0             | None
+76         4.99627         		4.0              	3.0             | Right
+77         5.00373         		4.0              	3.0             | Right
+78         4.99619         		4.0              	3.0             | None
+79         5.00381         		4.0              	3.0             | None
+#
+# TC11
+#
+80         a             		4.0              	5.0         | Error
+81         3.0             		!              	    5.0         | Error
+82         3.0             		4.0                 4,8         | Error
+83         3.2qwe          		4.0              	5.0         | Error
+84         3.0             		4.0              	qwertasdfadfsafkslöadksöl         | Error
+85         3.0             		4.0                 4,8         | Error

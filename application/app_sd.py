@@ -17,14 +17,21 @@ def Report_As_Error():
     print("Error ", end='')
 
 def is_in_range(A, B, C):
-   min_value = 1*math.pow(10, -100)
-   max_value = 1*math.pow(10, 100)
-   result= False
+    min_value = math.pow(10, -100)
+    max_value = math.pow(10, 100)
+    result = False
 
-   if A >= min_value and A <= max_value and B >= min_value and B <= max_value and C >= min_value and C <= max_value:
-      result= True
+    is_A_min = math.isclose(A, min_value, rel_tol=0.00001)
+    is_A_max = math.isclose(A, max_value, rel_tol=0.00001)
+    is_B_min = math.isclose(B, min_value, rel_tol=0.00001)
+    is_B_max = math.isclose(B, max_value, rel_tol=0.00001)
+    is_C_min = math.isclose(C, min_value, rel_tol=0.00001)
+    is_C_max = math.isclose(C, max_value, rel_tol=0.00001)
 
-   return result
+    if ((A > min_value and A < max_value) or is_A_min or is_A_max) and ((B > min_value and B < max_value) or is_B_min or is_B_max) and ((C > min_value and C < max_value) or is_C_min or is_C_max):
+        result = True
+
+    return result
 
 def is_triangle (A, B, C):
     result=False
