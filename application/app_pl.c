@@ -5,6 +5,9 @@
 #include <stdbool.h>
 
 double const Pi = 3.14159265;
+double const Upper_Range = 1.0e100;
+double const Lower_Range = 1.0e-100;
+double const Precision = 0.001;
 
 bool IsFloat(const char *Str) {
     char *EndPtr;
@@ -33,24 +36,53 @@ void Report_As_Error(void) {
     printf("Error ");
 }
 
-bool isRight(double a, double b, double c) {
-    if( abs(acos((exp(b)+exp(c)-exp(a))/(2*b*c)) - Pi*0.5) < 0.001 ) {
+bool Is_Close_To_90_D(double a) {
+    if( abs(a - Pi*0.5) < Precision ) {
         return true;
     }
     return false;
 }
 
-bool isEquilateral(double a, double b, double c) {
-    if (a == b && a == c) {
-        return true;
+bool isRight(double a, double b, double c) {
+    bool ReturnValue = false;
+
+    if( acos(( b*b + c*c - a*a )/(2*b*c) ) ) {
+        ReturnValue = true;
     }
+
+    if( acos(( a*a + c*c - b*b )/(2*a*c) ) ) {
+        ReturnValue = true;
+    }
+
+    if( acos(( a*a + b*b - a*a )/(2*a*b) ) ) {
+        ReturnValue = true;
+    }
+
+    return ReturnValue;
+}
+
+bool isEquilateral(double a, double b, double c) {
+    bool ReturnValue = false;
+    
+    if (a*Precision > b && b/Precision < a) {
+        ReturnValue = true;
+    }
+
+    if (a*Precision > c && c/Precision < a) {
+        ReturnValue = true;
+    }
+
+    if (c*Precision > a && a/Precision < c) {
+        ReturnValue = true;
+    }
+
     return false;
 }
 
 bool isIsosceles(double a, double b, double c) {
     
-    if ( (((fabs((a-b)/a)) < 0.001) && (fabs((b-a)/b) < 0.001) && c!=a && c!=b) ||
-         (((fabs((a-c)/a)) < 0.001) && (fabs((c-a)/c) < 0.001) && b!=a && b!=c)){
+    if ( (((fabs((a-b)/a)) < Precision) && (fabs((b-a)/b) < Precision) && c!=a && c!=b) ||
+         (((fabs((a-c)/a)) < Precision) && (fabs((c-a)/c) < Precision) && b!=a && b!=c)){
         return true;
     } 
     
@@ -58,9 +90,10 @@ bool isIsosceles(double a, double b, double c) {
 }
 
 bool isError(double a, double b, double c) {
-    if(a <= 1.0e-100-0.001 || b <= 1.0e-100-0.001 ||
-    c <=1.0e-100-0.001 || a >= 1.0e100+0.001 ||
-    b >= 1.0e100+0.001 || c >= 1.0e100+0.001) {
+    if(a < Lower_Range-Precision || b < Lower_Range-Precision ||
+    c < Lower_Range-Precision || a > Upper_Range+Precision ||
+    b > Upper_Range+Precision || c > Upper_Range+Precision ||
+    a < 0 || b < 0 || c < 0) {
         return true;
     }
 return false;
@@ -68,20 +101,28 @@ return false;
 
 void Triangle(double A, double B, double C) {
 
-    if(isError(A, B, C) || isError(C, A, B) ||isError(B, C, A)) {
+    bool Reported = false;
+
+    if(isError(A, B, C)) {
         Report_As_Error();
+        Reported = true;
     }
-    else {
-        if(isEquilateral(A, B, C) || isEquilateral(C, A, B) || isEquilateral(B, C, A)) {
+    else {    
+        if(isEquilateral(A, B, C)) {
             Report_As_Equilateral();
+            Reported = true;
         }
-        else if(isIsosceles(A, B, C) || isIsosceles(C, A, B) || isIsosceles(B, C, A)) {
+        else if(isIsosceles(A, B, C)) {
             Report_As_Isosceles();
+            Reported = true;
         }
-        else if (isRight(A, B, C) || isRight(C, A, B) || isRight(B, C, A)) {
+        
+        if (isRight(A, B, C)) {
             Report_As_Right();
+            Reported = true;
         }
-        else {
+        
+        if (!Reported) {
             Report_As_None();
         }
     }
@@ -112,6 +153,8 @@ int main(int argc, char *argv[]) {
    double C = atof(side[2]);
 
    Triangle(A, B, C);
+   Triangle(B, C, A);
+   Triangle(C, A, B);
 
    return 0;
 }
