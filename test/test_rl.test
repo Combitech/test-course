@@ -1,0 +1,31 @@
+Test No    	Input A				Input B				Input C						| Expected Results
+1			10.0				10.0				10.0						| Equilateral
+2			1e-100+0.001*1e-100	1e-100+0.001*1e-100	1e-100+0.001*1e-100			| Equilateral
+3			1e100-0.001*1e100	1e100-0.001*1e100	1e100-0.001*1e100			| Equilateral
+4			0					0					0							| Error
+5			7					0					0							| Error
+6			0					7					0							| Error
+7			0					0					7							| Error
+9			10.0				10.0				3							| Isosceles
+9a			10.0				3					10.0						| Isosceles
+9b			3					10.0				10.0						| Isosceles
+10			1e-100+0.02*1e-100	1e-100+0.02*1e-100	1e-100+0.001*1e-100			| Isosceles
+11_luring	1e100-0.001*1e100	1e100-0.001*1e100	5							| Isosceles
+12			3					4					5							| Right
+13			3e-99				4e-99				5e-99						| Right
+14			3					3					sqrt(18)					| Right Isosceles
+14a			3					sqrt(18)			3							| Right Isosceles
+14b			sqrt(18)			3					3							| Right Isosceles
+15			3e-99				3e-99				sqrt(18)*1e-99				| Right Isosceles
+16			3e99				3e99				sqrt(18)*1e99				| Right Isosceles
+17			10					7					5							| None
+100			1					1					2							| Error
+100a		1					2					1							| Error
+100b		2					1					1							| Error
+101			1					1					5							| Error
+102			A					B					19							| Error
+103			-3					-4					-5							| Error
+104			-1					2					2							| Error
+105			""					1					1							| Error
+106			1e101				1e101				1e101						| Error
+106			1e-101				1e-101				1e-101						| Error
