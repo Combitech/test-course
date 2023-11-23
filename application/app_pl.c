@@ -33,12 +33,58 @@ void Report_As_Error(void) {
     printf("Error ");
 }
 
+bool isRight(double a, double b, double c) {
+    if( abs(acos((exp(b)+exp(c)-exp(a))/(2*b*c)) - Pi*0.5) < 0.001 ) {
+        return true;
+    }
+    return false;
+}
+
+bool isEquilateral(double a, double b, double c) {
+    if (a == b && a == c) {
+        return true;
+    }
+    return false;
+}
+
+bool isIsosceles(double a, double b, double c) {
+    
+    if ( (((fabs((a-b)/a)) < 0.001) && (fabs((b-a)/b) < 0.001) && c!=a && c!=b) ||
+         (((fabs((a-c)/a)) < 0.001) && (fabs((c-a)/c) < 0.001) && b!=a && b!=c)){
+        return true;
+    } 
+    
+    return false;
+}
+
+bool isError(double a, double b, double c) {
+    if(a <= 1.0e-100-0.00101 || b <= 1.0e-100-0.00101 || c <=1.0e-100-0.00101 || a >= 1.0e100+0.00101 || b >= 1.0e100+0.00101 || c >= 1.0e100+0.00101) {
+        return true;
+    }
+return false;
+}
 
 void Triangle(double A, double B, double C) {
-   
-   /* 
-      Write your code here!
-   */
+
+    if(isError(A, B, C) || isError(C, A, B) ||isError(B, C, A)) {
+        Report_As_Error();
+    }
+    else {
+        if(isEquilateral(A, B, C) || isEquilateral(C, A, B) || isEquilateral(B, C, A)) {
+            Report_As_Equilateral();
+        }
+        else if(isIsosceles(A, B, C) || isIsosceles(C, A, B) || isIsosceles(B, C, A)) {
+            Report_As_Isosceles();
+        }
+        else if (isRight(A, B, C) || isRight(C, A, B) || isRight(B, C, A)) {
+            Report_As_Right();
+        }
+        else {
+            Report_As_None();
+        }
+    }
+
+
 
 }
 
