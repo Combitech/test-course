@@ -36,11 +36,25 @@ def is_triangle(A, B, C):
        return False
 
     # Check that this is a triangle
-    print((A,B,C))
+    #print((A,B,C))
+    #if ((Decimal(A) + Decimal(B)) > Decimal(C) and 
+    #    (Decimal(B) + Decimal(C)) > Decimal(A) and 
+    #    (Decimal(C) + Decimal(A)) > Decimal(B)):
+    # Special function to compare sides when two sides are very large and one is very short
+    def is_larger(x1, x2, y):
+        x = x1 + x2
+
+        # Normal case
+        if x > y:
+            return True
+    
+        if x == y:
+            if x1 == y or x2 == y:
+                return True
+        return False
+        
     #if math.fsum((A, B)) > C and math.fsum((B, C)) > A and math.fsum((C, A)) > B:
-    if ((Decimal(A) + Decimal(B)) > Decimal(C) and 
-        (Decimal(B) + Decimal(C)) > Decimal(A) and 
-        (Decimal(C) + Decimal(A)) > Decimal(B)):
+    if is_larger(A,B,C) and is_larger(B,C,A) and is_larger(C,A,B):
         return True
     else:
         return False
