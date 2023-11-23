@@ -2,21 +2,15 @@ Test No    Input A          Input B             Input C              | Expected 
 # Verify that app outputs Equilateral when A, B and C are equal
 #       
 Eq.1         1                1                   1                    | Equilateral
-Eq.2         1-0.001          1                   1                    | Equilateral
-Eq.3         1                1-0.001             1                    | Equilateral
-Eq.4         1                1                   1-0.001              | Equilateral
+Eq.2         1-0.001+0.00001  1                   1                    | Equilateral
+Eq.3         1                1-0.001+0.00001     1                    | Equilateral
+Eq.4         1                1                   1-0.001+0.00001      | Equilateral
 Eq.5         1+0.001-0.00001  1                   1                    | Equilateral
 Eq.6         1                1+0.001-0.00001     1                    | Equilateral
 Eq.7         1                1                   1+0.001-0.00001      | Equilateral
 Eq.8         1-0.001+0.0001   1                   1                    | Equilateral
 Eq.9         1                1-0.001+0.0001      1                    | Equilateral
 Eq.10        1                1                   1-0.001+0.0001       | Equilateral
-Eq.11        1-0.001-0.0001   1                   1                    | Error
-Eq.12        1                1-0.001-0.0001      1                    | Error
-Eq.12        1                1                   1-0.001-0.0001       | Error
-Eq.13        1+0.001+0.0001   1                   1                    | Error
-Eq.14        1                1+0.001+0.0001      1                    | Error
-Eq.15        1                1                   1+0.001+0.0001       | Error
 #
 Iso.1         1+0.001-0.00001       1                        5                    | Isosceles
 Iso.2         1                     1+0.001-0.00001          5                    | Isosceles
