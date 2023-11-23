@@ -58,7 +58,9 @@ bool isIsosceles(double a, double b, double c) {
 }
 
 bool isError(double a, double b, double c) {
-    if(a <= 1.0e-100-0.00101 || b <= 1.0e-100-0.00101 || c <=1.0e-100-0.00101 || a >= 1.0e100+0.00101 || b >= 1.0e100+0.00101 || c >= 1.0e100+0.00101) {
+    if(a <= 1.0e-100-0.001 || b <= 1.0e-100-0.001 ||
+    c <=1.0e-100-0.001 || a >= 1.0e100+0.001 ||
+    b >= 1.0e100+0.001 || c >= 1.0e100+0.001) {
         return true;
     }
 return false;
