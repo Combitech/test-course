@@ -1,5 +1,6 @@
 import math
 import sys
+from decimal import *
 
 PRECISION = 0.001
 MAX_LENGTH_SIDES = 1e100
@@ -35,7 +36,11 @@ def is_triangle(A, B, C):
        return False
 
     # Check that this is a triangle
-    if (A + B) > C and (B + C) > A and (C + A) > B:
+    print((A,B,C))
+    #if math.fsum((A, B)) > C and math.fsum((B, C)) > A and math.fsum((C, A)) > B:
+    if ((Decimal(A) + Decimal(B)) > Decimal(C) and 
+        (Decimal(B) + Decimal(C)) > Decimal(A) and 
+        (Decimal(C) + Decimal(A)) > Decimal(B)):
         return True
     else:
         return False
@@ -66,16 +71,17 @@ def Tri(A, B, C):
         Report_As_Equilateral()
     
     # Check for isosceles
-    if (math.isclose(A,B, rel_tol=PRECISION)
+    elif (math.isclose(A,B, rel_tol=PRECISION)
         or math.isclose(B,C, rel_tol=PRECISION)
         or math.isclose(A,C, rel_tol=PRECISION)):
         found = True
         Report_As_Isosceles()
     
     # Check for right
-    if (math.isclose(angles[0], 90.0, rel_tol=PRECISION) or
-        math.isclose(angles[1], 90.0, rel_tol=PRECISION) or
-        math.isclose(angles[2], 90.0, rel_tol=PRECISION)):
+    right_angles = (math.isclose(angles[0], 90.0, rel_tol=PRECISION),
+                    math.isclose(angles[1], 90.0, rel_tol=PRECISION),
+                    math.isclose(angles[2], 90.0, rel_tol=PRECISION))
+    if (right_angles.count(True) == 1):
         found = True
         Report_As_Right()
     # None
