@@ -96,10 +96,10 @@ Test No    Input A    		 	Input B     		Input C   		| Expected Results
 # TC10
 #
 67         3.0             		4.0              	5.0             | Right
-68         3.0             		4.0              	4.99627         | Right  #OK
-69         3.0             		4.0              	5.00373         | Right  #OK
+68         3.0             		4.0              	4.99627         | Right
+69         3.0             		4.0              	5.00373         | Right
 70         3.0             		4.0              	4.99619         | None
-71         3.0             		4.0              	5.00381         | None  #Not OK
+71         3.0             		4.0              	5.00381         | None
 72         3.0             		4.99627            	4.0             | Right
 73         3.0             		5.00373            	4.0             | Right
 74         3.0             		4.99619            	4.0             | None
@@ -117,3 +117,19 @@ Test No    Input A    		 	Input B     		Input C   		| Expected Results
 83         3.2qwe          		4.0              	5.0         | Error
 84         3.0             		4.0              	qwertasdfadfsafkslöadksöl         | Error
 85         3.0             		4.0                 4,8         | Error
+#
+# TC12
+#
+86         .8             		1.0              	1.0         | Isosceles
+87         1E10                 0.9e10              1e10        | Isosceles
+88         pow(10,10)           0.9e10              1e10        | Isosceles
+89         10000000000000000000000000000           10000000000000000000000000000              10000000000000000000000000000        | Equilateral
+90         .00000008            .00000009           .00000008   | Isosceles
+91         1E-10                0.9e-10             1e-10       | Isosceles
+92         pow(10,-10)          0.9e-10             1e-10       | Isosceles
+93         0.0000000000000000000000001           0.0000000000000000000000001              0.0000000000000000000000001        | Equilateral
+94         1.2.0          		1.0              	1.0         | Error
+95         1e1.1          		10.0              	10.0        | Error
+96         1e2e2           		1.0              	1.0         | Error
+97         3                    4              	    5           | Right
+98         23                   12              	  24           | Merry Christmas Mr Grinch
