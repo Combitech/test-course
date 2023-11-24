@@ -61,19 +61,19 @@ bool isRight(double a, double b, double c) {
     return ReturnValue;
 }
 
+bool IsEqualLength(double a, double b) {
+    if (((a - Precision) < b) && ((a + Precision) > b)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 bool isEquilateral(double a, double b, double c) {
-    bool ReturnValue = false;
-    
-    if (a*Precision > b && b/Precision < a) {
-        ReturnValue = true;
-    }
-
-    if (a*Precision > c && c/Precision < a) {
-        ReturnValue = true;
-    }
-
-    if (c*Precision > a && a/Precision < c) {
-        ReturnValue = true;
+    if(IsEqualLength(a, b) && IsEqualLength(b, c) && IsEqualLength(a, c))
+    {
+        return true;
     }
 
     return false;
@@ -102,22 +102,23 @@ return false;
 void Triangle(double A, double B, double C) {
 
     bool Reported = false;
+    bool Reported_Equilateral = false;
 
     if(isError(A, B, C)) {
         Report_As_Error();
         Reported = true;
     }
     else {    
-        if(isEquilateral(A, B, C)) {
+        if(isEquilateral(A, B, C) || isEquilateral(C, A, B) || isEquilateral(B, C, A)) {
             Report_As_Equilateral();
             Reported = true;
+            Reported_Equilateral = true;
         }
-        else if(isIsosceles(A, B, C)) {
+        else if(isIsosceles(A, B, C) || isIsosceles(C, A, B) || isIsosceles(B, C, A)) {
             Report_As_Isosceles();
             Reported = true;
         }
-        
-        if (isRight(A, B, C)) {
+        if (!Reported_Equilateral && (isRight(A, B, C) || isRight(C, A, B) || isRight(B, C, A))) {
             Report_As_Right();
             Reported = true;
         }
@@ -153,8 +154,6 @@ int main(int argc, char *argv[]) {
    double C = atof(side[2]);
 
    Triangle(A, B, C);
-   Triangle(B, C, A);
-   Triangle(C, A, B);
 
    return 0;
 }
