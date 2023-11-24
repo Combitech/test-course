@@ -132,3 +132,4 @@ Test No    Input A    		 	Input B     		Input C   		| Expected Results
 95         1e1.1          		10.0              	10.0        | Error
 96         1e2e2           		1.0              	1.0         | Error
 97         3                    4              	    5           | Right
+98         23                   12              	  24           | Merry Christmas Mr Grinch

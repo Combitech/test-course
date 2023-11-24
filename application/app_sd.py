@@ -16,6 +16,9 @@ def Report_As_None():
 def Report_As_Error():
     print("Error ", end='')
 
+def Report_As_Christmas():
+    print("Merry Christmas Mr Grinch ", end='')    
+
 def is_in_range(A, B, C):
     min_value = math.pow(10, -100)
     max_value = math.pow(10, 100)
@@ -46,6 +49,18 @@ def is_equilateral (A,B,C):
       result = True
 
    return result
+
+def is_christmas_date(A,B,C):
+   result = False
+   year = 23
+   month = 12
+   date = 24
+
+   if math.isclose(A, 23, rel_tol=0.001) and math.isclose(B, 12, rel_tol=0.001) and math.isclose(C, 24, rel_tol=0.001):
+      result = True
+
+   return result
+
 
 
 def is_isosceles (A, B, C):
@@ -106,6 +121,10 @@ def Tri(A, B, C):
 
     if is_right(A,B,C):
         Report_As_Right()
+        is_any_type = True
+
+    if is_christmas_date(A, B, C):
+        Report_As_Christmas()
         is_any_type = True
 
     # None
