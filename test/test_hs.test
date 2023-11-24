@@ -1,0 +1,63 @@
+Test No    Input A                                          Input B                                         Input C                                                         | Expected Results
+# a. verify min in range                                                               
+a_1        (1e-100)/(1.00001)                               2.0                                             2.0                                                             | Error
+a_2        (1e-100)*(1.00001)                               2.0                                             2.0                                                             | 
+a_5        2.0                                              2.0                                             (1e-100)/(1.00001)                                       | Error
+a_6        2.0                                              2.0                                             (1e-100)*(1.00001)                                       | 
+# b. verify max in range                                                                       
+b_1        (1e100)*(1.00001)                                (1e100)/(1.001)                                 (1e100)/(1.001)                                           | Error
+b_2        (1e100)/(1.00001)                                (1e100)/(1.001)                                 (1e100)/(1.001)                                           | 
+b_3        (1e100)/(1.001)                                  (1e100)*(1.00001)                               (1e100)/(1.001)                                           | Error
+b_4        (1e100)/(1.001)                                  (1e100)/(1.00001)                               (1e100)*(1.00001)                                         | 
+b_5        (1e100)/(1.001)                                  (1e100)/(1.001)                                 (1e100)/(1.00001)                                         | Error
+b_6        (1e100)/(1.001)                                  (1e100)/(1.001)                                 (1e100)/(1.001)                                           | 
+# c. equilateral +- precision +- testmargin                                                                       
+c_1         2.0                                             2.0                                             2.0                                                             | Equilateral
+c_2         2.0/(1.00101)                                   2.0                                             2.0                                                             | Isoceles
+c_3         2.0/(1.00099)                                   2.0                                             2.0                                                             | Equilateral
+c_4         2.0*(1.00101)                                   2.0                                             2.0                                                             | Isoceles
+c_5         2.0*(1.00099)                                   2.0                                             2.0                                                             | Equilateral
+c_6         2.0                                             2.0/(1.00101)                                   2.0                                                             | Isoceles
+c_7         2.0                                             2.0/(1.00099)                                   2.0                                                             | Equilateral
+c_8         2.0                                             2.0*(1.00101)                                   2.0                                                             | Isoceles
+c_9         2.0                                             2.0*(1.00099)                                   2.0                                                             | Equilateral
+c_10        2.0                                             2.0                                             2.0/(1.00101)                                               | Isoceles
+c_11        2.0                                             2.0                                             2.0/(1.00099)                                               | Equilateral
+c_12        2.0                                             2.0                                             2.0*(1.00101)                                               | Isoceles
+c_13        2.0                                             2.0                                             2.0*(1.00099)                                               | Equilateral
+# d. isoceles +- precision +- testma
+d_1         2.0                                             2.0                                             1.0                                                             | Isoceles
+d_2         2.0/(1.00101)                                   2.0                                             1.0                                                             | None
+d_3         2.0/(1.00099)                                   2.0                                             1.0                                                             | None
+d_4         2.0*(1.00101)                                   2.0                                             1.0                                                             | None
+d_5         2.0*(1.00099)                                   2.0                                             1.0                                                             | None
+d_6         1.0                                             2.0                                             2.0                                                             | Isoceles
+d_7         1.0                                             2.0/(1.00101)                                   2.0                                                             | None
+d_8         1.0                                             2.0/(1.00099)                                   2.0                                                             | None
+d_9         1.0                                             2.0*(1.00101)                                   2.0                                                             | None
+d_10        1.0                                             2.0*(1.00099)                                   2.0                                                             | None
+d_11        2.0                                             1.0                                             2.0                                                             | Isoceles
+d_12        2.0                                             1.0                                             2.0/(1.00101)                                               | None
+d_13        2.0                                             1.0                                             2.0/(1.00099)                                               | None
+d_14        2.0                                             1.0                                             2.0*(1.00101)                                               | None
+d_15        2.0                                             1.0                                             2.0*(1.00099)                                               | None
+# e. right +- precision +- testmargin
+e_1         2.0                                             3.0                                             4.0                                                             | Right
+e_2         2.0                                             3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90/1.00101))              | None #90 deg - 0,101%
+e_3         2.0                                             3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90/1.0099))               | Right #90 deg - 0,099%
+e_4         2.0                                             3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90*1.00101))              | None #90 deg + 0,101%
+e_5         2.0                                             3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90*1.0099))               | Right #90 deg + 0,099%
+e_6         4.0                                             2.0                                             3.0                                                             | Right
+e_7         sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90/1.00101))   2.0                                             3.0                                                             | None
+e_8         sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90/1.0099))    2.0                                             3.0                                                             | Right
+e_9         sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90*1.00101))   2.0                                             3.0                                                             | None
+e_10        sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90*1.0099))    2.0                                             3.0                                                             | Right
+e_11        3.0                                             4.0                                             2.0                                                             | Right
+e_12        3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90/1.00101))   2.0                                                             | None
+e_13        3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90/1.0099))    2.0                                                             | Right
+e_14        3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90*1.00101))   2.0                                                             | None
+e_15        3.0                                             sqrt(pow(2,2)+pow(3,2)-2*2*3*cos(90*1.0099))    2.0                                                             | Right
+# f. right and isoceles
+f_1         5.0                                             5.0                                             8.0                                                             | Right
+f_1         5.0                                             8.0                                             5.0                                                             | Right
+f_1         8.0                                             5.0                                             5.0                                                             | Right
